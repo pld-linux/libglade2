@@ -3,7 +3,7 @@ Summary(es):	El libglade permite que usted cargue archivos del interfaz del glad
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	1.99.10
+Version:	1.99.11
 Release:	1
 Epoch:		1
 License:	LGPL
