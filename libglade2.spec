@@ -5,13 +5,14 @@ Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.0.1
-Release:	5
+Release:	6
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.0/libglade-%{version}.tar.bz2
 # Source0-md5: 4d93f6b01510013ae429e91af432cfe2
 Patch0:		%{name}-xmldoc.patch
+Patch1:		%{name}-tooltip.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -98,6 +99,7 @@ interface glade.
 %prep
 %setup -q -n libglade-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
