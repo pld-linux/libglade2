@@ -4,13 +4,13 @@ Summary(es):	El libglade permite que usted cargue archivos del interfaz del glad
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.3.1
+Version:	2.3.2
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.3/libglade-%{version}.tar.bz2
-# Source0-md5:	29bcc66ff148463a407e01afaa8db90a
+# Source0-md5:	098e154177c3ba1791735626b915385a
 #Source0:	libglade-%{version}.%{snap}.tar.bz2
 #Patch0:		%{name}-xmldoc.patch
 URL:		http://www.gnome.org/
