@@ -24,6 +24,7 @@ BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	pkgconfig
 BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.98
 Requires:	python-modules >= 2.0
