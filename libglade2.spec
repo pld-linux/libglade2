@@ -1,24 +1,26 @@
 # register glade-2.0.dtd
+%define		snap 20031114
 Summary:	libglade library
 Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.0.1
-Release:	5
+Version:	2.3.0
+Release:	0.%{snap}.1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.0/libglade-%{version}.tar.bz2
-# Source0-md5: 4d93f6b01510013ae429e91af432cfe2
-Patch0:		%{name}-xmldoc.patch
+#Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.0/libglade-%{version}.tar.bz2
+Source0:	libglade-%{version}.%{snap}.tar.bz2
+# Source0-md5: 240803c451f5d5ef732a280d312c121e
+#Patch0:		%{name}-xmldoc.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 2.0.6
-BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	glib2-devel >= 2.3.0
+BuildRequires:	gtk+2-devel >= 2.3.0
 BuildRequires:	gtk-doc >= 0.9-4
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
@@ -55,7 +57,7 @@ Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a 
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}
 Requires:	libxml2-devel
-Requires:	gtk+2-devel >= 2.0.0
+Requires:	gtk+2-devel >= 2.3.0
 Requires:	gtk-doc-common
 Obsoletes:	libglade2.0-devel
 
@@ -97,15 +99,15 @@ interface glade.
 
 %prep
 %setup -q -n libglade-%{version}
-%patch0 -p1
+#%patch0 -p1
 
 %build
-rm -f missing
-%{__libtoolize}
-glib-gettextize --copy --force
-%{__aclocal}
-%{__autoconf}
-%{__automake}
+#rm -f missing
+#%{__libtoolize}
+#glib-gettextize --copy --force
+#%{__aclocal}
+#%{__autoconf}
+#%{__automake}
 %configure \
 	--enable-gtk-doc \
 	--with-html-path=%{_gtkdocdir}
