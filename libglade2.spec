@@ -1,9 +1,10 @@
+# register glade-2.0.dtd
 Summary:	libglade library
 Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	1.99.12
+Version:	2.0.0
 Release:	1
 Epoch:		1
 License:	LGPL
@@ -16,11 +17,13 @@ BuildRequires:	gettext-devel
 BuildRequires:	bison
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libxml2-devel >= 2.4.10
+BuildRequires:	glib2-devel >= 2.0.3-3
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define		_gtkdocdir	/usr/share/doc/gtk-doc/html
 
 %description
 This library allows you to load user interfaces in your program, which
@@ -96,24 +99,25 @@ interface glade.
 %build
 rm -f missing
 libtoolize --copy --force
-gettextize --copy --force
+glib-gettextize --copy --force
 aclocal
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-bonobo \
-	--disable-gnomedb \
-	--disable-gtk-doc
+	--enable-gtk-doc \
+	--with-html-path=%{_gtkdocdir}
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_libdir}/libglade/2.0
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
+	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
-gzip -9nf AUTHORS ChangeLog NEWS README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -124,17 +128,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
+%{_libdir}/libglade
 %{_datadir}/xml/libglade/*.dtd
 
 %files devel
 %defattr(644,root,root,755)
-%doc *gz
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_pkgconfigdir}/*
 %{_includedir}/libglade-*
-%{_datadir}/gtk-doc/html/libglade
+%{_gtkdocdir}/libglade
 
 %files static
 %defattr(644,root,root,755)
