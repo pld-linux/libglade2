@@ -3,13 +3,12 @@ Summary(es):	El libglade permite que usted cargue archivos del interfaz del glad
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	1.99.11
+Version:	1.99.12
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/libglade/libglade-%{version}.tar.bz2
-Patch0:		%{name}-nogtkdoc.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -93,7 +92,6 @@ interface glade.
 
 %prep
 %setup -q -n libglade-%{version}
-%patch0 -p1
 
 %build
 rm -f missing
