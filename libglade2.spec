@@ -4,7 +4,7 @@ Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	1.99.9
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -102,7 +102,8 @@ autoconf
 automake -a -c -f
 %configure \
 	--enable-bonobo \
-	--disable-gnomedb
+	--disable-gnomedb \
+	--disable-gtk-doc
 %{__make}
 
 %install
