@@ -143,7 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %{_pkgconfigdir}/*
 %{_includedir}/libglade-*
 %{_gtkdocdir}/libglade
