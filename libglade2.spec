@@ -1,27 +1,30 @@
+# register glade-2.0.dtd
 Summary:	libglade library
 Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	1.99.9
-Release:	2
+Version:	2.0.1
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libglade/libglade-%{version}.tar.gz
-Patch0:		%{name}-nogtkdoc.patch
+Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/libglade/libglade-%{version}.tar.bz2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	gettext-devel
 BuildRequires:	bison
-BuildRequires:	gtk+2-devel >= 2.0.0
-BuildRequires:	libxml2-devel >= 2.4.10
+BuildRequires:	gtk+2-devel >= 2.0.6
+BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	glib2-devel >= 2.0.6
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libglade2.0
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
 This library allows you to load user interfaces in your program, which
@@ -53,6 +56,8 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	libxml2-devel
 Requires:	gtk+2-devel >= 2.0.0
+Requires:	gtk-doc-common
+Obsoletes:	libglade2.0-devel
 
 %description devel
 Libraries, include files, etc you can use to develop libglade
@@ -93,29 +98,29 @@ interface glade.
 
 %prep
 %setup -q -n libglade-%{version}
-%patch0 -p1
 
 %build
 rm -f missing
-libtoolize --copy --force
-gettextize --copy --force
+%{__libtoolize}
+glib-gettextize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
-	--enable-bonobo \
-	--disable-gnomedb \
-	--disable-gtk-doc
+	--enable-gtk-doc \
+	--with-html-path=%{_gtkdocdir}
+
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_libdir}/libglade/2.0
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
+	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
-gzip -9nf AUTHORS ChangeLog NEWS README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -126,17 +131,18 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
+%{_libdir}/libglade
 %{_datadir}/xml/libglade/*.dtd
 
 %files devel
 %defattr(644,root,root,755)
-%doc *gz
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
 %{_pkgconfigdir}/*
 %{_includedir}/libglade-*
-%{_datadir}/gtk-doc/html/libglade
+%{_gtkdocdir}/libglade
 
 %files static
 %defattr(644,root,root,755)
