@@ -9,13 +9,15 @@ Release:	3
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME//sources/libglade/2.0/libglade-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.0/libglade-%{version}.tar.bz2
+# Source0-md5:	4d93f6b01510013ae429e91af432cfe2
 Patch0:		%{name}-xmldoc.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel
+BuildRequires:	glib2-devel >= 1:2.0.7
+BuildRequires:	gtk+2-devel >= 1:2.0.9
 BuildRequires:	gtk-doc
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel
