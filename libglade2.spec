@@ -22,6 +22,7 @@ BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	gtk-doc >= 0.9-4
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	xrender-devel
 BuildRequires:	rpm-build >= 4.1-8.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libglade2.0
