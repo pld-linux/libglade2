@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.0.1
-Release:	3
+Release:	4
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -20,13 +20,10 @@ BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	glib2-devel >= 2.0.6
 BuildRequires:	gtk-doc >= 0.9-4
+BuildRequires:	rpm-build >= 4.1-8.2
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libglade2.0
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
 This library allows you to load user interfaces in your program, which
