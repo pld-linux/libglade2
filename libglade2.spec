@@ -103,7 +103,7 @@ interface glade.
 rm -f missing
 %{__libtoolize}
 glib-gettextize --copy --force
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
