@@ -98,7 +98,7 @@ interface glade.
 
 %build
 rm -f missing
-libtoolize --copy --force
+%{__libtoolize}
 glib-gettextize --copy --force
 aclocal
 %{__autoconf}
