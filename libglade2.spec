@@ -23,8 +23,8 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel
 BuildRequires:	python-modules
 URL:		http://www.gnome.org/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libglade2.0
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
