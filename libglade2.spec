@@ -9,7 +9,8 @@ Release:	2
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/libglade/libglade-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME//sources/libglade/2.0/libglade-%{version}.tar.bz2
+Patch0:		%{name}-xmldoc.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -18,6 +19,7 @@ BuildRequires:	bison
 BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	gtk-doc >= 0.9-4
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libglade2.0
@@ -98,6 +100,7 @@ interface glade.
 
 %prep
 %setup -q -n libglade-%{version}
+%patch0 -p1
 
 %build
 rm -f missing
@@ -130,13 +133,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/libglade
 %{_datadir}/xml/libglade/*.dtd
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
