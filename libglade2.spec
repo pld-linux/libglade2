@@ -53,7 +53,7 @@ Summary(es):	Archivos necesarios para el desarrollo de aplicaciones con libglade
 Summary(pl):	Pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}
 Requires:	libxml2-devel
 Requires:	gtk+2-devel >= 2.0.0
 Requires:	gtk-doc-common
@@ -79,7 +79,7 @@ Summary(es):	Archivos estáticos necesarios para el desarrollo de aplicaciones co
 Summary(pl):	Biblioteka statyczna libglade
 Summary(pt_BR):	Arquivos estáticos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{epoch}:%{version}
 
 %description static
 Static libglade library.
