@@ -1,18 +1,17 @@
 # register glade-2.0.dtd
-%define		snap 20031114
 Summary:	libglade library
 Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.3.0
-Release:	0.%{snap}.1
+Version:	2.3.1
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-#Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.0/libglade-%{version}.tar.bz2
-Source0:	libglade-%{version}.%{snap}.tar.bz2
-# Source0-md5: 240803c451f5d5ef732a280d312c121e
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.3/libglade-%{version}.tar.bz2
+# Source0-md5:	29bcc66ff148463a407e01afaa8db90a
+#Source0:	libglade-%{version}.%{snap}.tar.bz2
 #Patch0:		%{name}-xmldoc.patch
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
