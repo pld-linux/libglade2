@@ -6,21 +6,21 @@ Summary(es):	El libglade permite que usted cargue archivos del interfaz del glad
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.4.2
+Version:	2.5.1
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.4/libglade-%{version}.tar.bz2
-# Source0-md5:	83d08f9ab485a10454bd5171d2d53fb0
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.5/libglade-%{version}.tar.bz2
+# Source0-md5:	e4734a59f1f2308d7714dc0ebf8163f1
 URL:		http://www.gnome.org/
-BuildRequires:	atk-devel >= 1.6.0
-BuildRequires:	autoconf
+BuildRequires:	atk-devel >= 1:1.9.0
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.4.0
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	glib2-devel >= 1:2.6.2
+BuildRequires:	gtk+2-devel >= 2:2.6.2
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
@@ -60,7 +60,7 @@ Summary(pl):	Pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.4.0
+Requires:	gtk+2-devel >= 2:2.6.2
 Requires:	gtk-doc-common
 Requires:	libxml2-devel
 Obsoletes:	libglade2.0-devel
