@@ -9,6 +9,7 @@ Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/GNOME/stable/sources/libglade/libglade-%{version}.tar.gz
+Patch0:		%{name}-nogtkdoc.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -92,6 +93,7 @@ interface glade.
 
 %prep
 %setup -q -n libglade-%{version}
+%patch0 -p1
 
 %build
 rm -f missing
