@@ -5,19 +5,21 @@ Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.0.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/libglade/libglade-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME//sources/libglade/2.0/libglade-%{version}.tar.bz2
+Patch0:		%{name}-xmldoc.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
-BuildRequires:	gettext-devel
 BuildRequires:	bison
-BuildRequires:	gtk+2-devel >= 2.0.6
-BuildRequires:	libxml2-devel >= 2.4.24
-BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+2-devel
+BuildRequires:	gtk-doc
+BuildRequires:	libtool
+BuildRequires:	libxml2-devel
+BuildRequires:	python-modules
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libglade2.0
@@ -54,9 +56,10 @@ Summary(pl):	Biblioteki, pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	libxml2-devel
-Requires:	gtk+2-devel >= 2.0.0
+Requires:	gtk+2-devel
 Requires:	gtk-doc-common
+Requires:	libxml2-devel
+Requires:	python-modules
 Obsoletes:	libglade2.0-devel
 
 %description devel
@@ -98,6 +101,7 @@ interface glade.
 
 %prep
 %setup -q -n libglade-%{version}
+%patch0 -p1
 
 %build
 rm -f missing
@@ -130,16 +134,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/libglade
 %{_datadir}/xml/libglade/*.dtd
 
 %files devel
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so
-%attr(755,root,root) %{_libdir}/lib*.la
+%{_libdir}/lib*.la
 %{_pkgconfigdir}/*
 %{_includedir}/libglade-*
 %{_gtkdocdir}/libglade
