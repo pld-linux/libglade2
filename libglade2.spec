@@ -4,28 +4,29 @@ Summary(es):	El libglade permite que usted cargue archivos del interfaz del glad
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.3.2
+Version:	2.3.6
 Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.3/libglade-%{version}.tar.bz2
-# Source0-md5:	098e154177c3ba1791735626b915385a
-#Source0:	libglade-%{version}.%{snap}.tar.bz2
-#Patch0:		%{name}-xmldoc.patch
+# Source0-md5:	f579c881b95e6dee0f55f82940eb2004
 URL:		http://www.gnome.org/
+BuildRequires:	atk-devel >= 1.6.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 2.3.0
-BuildRequires:	gtk+2-devel >= 2.3.0
-BuildRequires:	gtk-doc >= 0.9-4
+BuildRequires:	glib2-devel >= 2.3.6
+BuildRequires:	gtk+2-devel >= 2:2.3.6
+BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpm-build >= 4.1-8.2
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This library allows you to load user interfaces in your program, which
@@ -54,9 +55,9 @@ Summary(es):	Archivos necesarios para el desarrollo de aplicaciones con libglade
 Summary(pl):	Pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libxml2-devel
-Requires:	gtk+2-devel >= 2.3.0
+Requires:	gtk+2-devel >= 2:2.3.6
 Requires:	gtk-doc-common
 Obsoletes:	libglade2.0-devel
 
@@ -80,7 +81,7 @@ Summary(es):	Archivos estáticos necesarios para el desarrollo de aplicaciones co
 Summary(pl):	Biblioteka statyczna libglade
 Summary(pt_BR):	Arquivos estáticos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{epoch}:%{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static libglade library.
@@ -98,15 +99,13 @@ interface glade.
 
 %prep
 %setup -q -n libglade-%{version}
-#%patch0 -p1
 
 %build
-#rm -f missing
-#%{__libtoolize}
-#glib-gettextize --copy --force
-#%{__aclocal}
-#%{__autoconf}
-#%{__automake}
+%{__libtoolize}
+glib-gettextize --copy --force
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-gtk-doc \
 	--with-html-path=%{_gtkdocdir}
@@ -121,7 +120,6 @@ install -d $RPM_BUILD_ROOT%{_libdir}/libglade/2.0
 	DESTDIR=$RPM_BUILD_ROOT \
 	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
