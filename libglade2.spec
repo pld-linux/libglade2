@@ -7,7 +7,7 @@ Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.5.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -28,6 +28,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.98
+Requires:	atk >= 1:1.9.0
 Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
