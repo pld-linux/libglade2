@@ -19,13 +19,13 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.3.6
-BuildRequires:	gtk+2-devel >= 2:2.3.6
+BuildRequires:	glib2-devel >= 1:2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	python-modules >= 2.0
-BuildRequires:	rpm-build >= 4.1-8.2
+BuildRequires:	rpmbuild(macros) >= 1.98
 Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -58,7 +58,7 @@ Summary(pl):	Pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.3.6
+Requires:	gtk+2-devel >= 2:2.4.0
 Requires:	gtk-doc-common
 Requires:	libxml2-devel
 Obsoletes:	libglade2.0-devel
