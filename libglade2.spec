@@ -8,7 +8,7 @@ Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/libglade/libglade-%{version}.tar.gz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/pre-gnome2/sources/libglade/libglade-%{version}.tar.bz2
 Patch0:		%{name}-nogtkdoc.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
