@@ -11,17 +11,17 @@ License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME//sources/libglade/2.0/libglade-%{version}.tar.bz2
 Patch0:		%{name}-xmldoc.patch
+URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
-BuildRequires:	gettext-devel
 BuildRequires:	bison
-BuildRequires:	gtk+2-devel >= 2.0.6
-BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 2.0.6
+BuildRequires:	gtk+2-devel >= 2.0.6
 BuildRequires:	gtk-doc >= 0.9-4
+BuildRequires:	libtool
+BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	rpm-build >= 4.1-8.2
-URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libglade2.0
 
@@ -47,9 +47,9 @@ interface glade. Não é necessário ter o glade instalado, mas esta é a
 melhor maneira de criar os arquivos de interface.
 
 %package devel
-Summary:	Libraries, includes, etc to develop libglade applications
+Summary:	Header files and developer's documentation
 Summary(es):	Archivos necesarios para el desarrollo de aplicaciones con libglade
-Summary(pl):	Biblioteki, pliki nag³ówkowe i dokumentacja dla programisty
+Summary(pl):	Pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
@@ -59,15 +59,14 @@ Requires:	gtk-doc-common
 Obsoletes:	libglade2.0-devel
 
 %description devel
-Libraries, include files, etc you can use to develop libglade
-applications.
+Header files and developer's documentation for libglade.
 
 %description devel -l es
 Archivos de inclusión y bibliotecas necesarias para el desarrollo de
 aplicaciones con glade.
 
 %description devel -l pl
-Biblioteki, pliki nag³ówkowe i dokumentacja dla programisty.
+Pliki nag³ówkowe i dokumentacja dla programisty libglade.
 
 %description devel -l pt_BR
 Arquivos de inclusão e bibliotecas para o desenvolvimento de
@@ -133,6 +132,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/libglade
+%dir %{_datadir}/xml
+%dir %{_datadir}/xml/libglade
 %{_datadir}/xml/libglade/*.dtd
 
 %files devel
