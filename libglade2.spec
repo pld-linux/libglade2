@@ -13,13 +13,13 @@ Source0:	http://ftp.gnome.org/pub/GNOME//sources/libglade/2.0/libglade-%{version
 Patch0:		%{name}-xmldoc.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
-BuildRequires:	gettext-devel
 BuildRequires:	bison
-BuildRequires:	gtk+2-devel >= 2.0.6
-BuildRequires:	libxml2-devel >= 2.4.24
-BuildRequires:	glib2-devel >= 2.0.6
-BuildRequires:	gtk-doc >= 0.9-4
+BuildRequires:	gettext-devel
+BuildRequires:	gtk+2-devel
+BuildRequires:	gtk-doc
+BuildRequires:	libtool
+BuildRequires:	libxml2-devel
+BuildRequires:	python-modules
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libglade2.0
@@ -56,9 +56,10 @@ Summary(pl):	Biblioteki, pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	libxml2-devel
-Requires:	gtk+2-devel >= 2.0.0
+Requires:	gtk+2-devel
 Requires:	gtk-doc-common
+Requires:	libxml2-devel
+Requires:	python-modules
 Obsoletes:	libglade2.0-devel
 
 %description devel
