@@ -1,0 +1,11 @@
+--- libglade2-1.99.2.90/configure.in.nogtkdoc	Sat Oct  6 00:08:37 2001
++++ libglade2-1.99.2.90/configure.in	Sat Oct  6 00:08:50 2001
+@@ -68,7 +68,7 @@
+ AC_SUBST(LIBGLADE_GNOME_LIBS)
+ AM_CONDITIONAL(BUILD_GNOME, $build_gnome)
+ 
+-AC_CHECK_PROG(GTKDOC, gtkdoc-mkdb, true, false)
++AC_CHECK_PROG(GTKDOC, gtkdoc-mkdb, false, false)
+ AM_CONDITIONAL(HAVE_GTK_DOC, $GTKDOC)
+ 
+ dnl gettext stuff ... there is no message catalog for libglade -- libglade
