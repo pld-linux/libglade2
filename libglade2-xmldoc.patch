@@ -1,0 +1,23 @@
+diff -Nru libglade-2.0.1.orig/doc/Makefile.am libglade-2.0.1/doc/Makefile.am
+--- libglade-2.0.1.orig/doc/Makefile.am	Sat Jun  1 16:37:48 2002
++++ libglade-2.0.1/doc/Makefile.am	Thu Oct 10 15:03:51 2002
+@@ -73,7 +73,7 @@
+ 	@-chmod -R u+w $(srcdir)
+ 	@test -d $(srcdir)/sgml || mkdir $(srcdir)/sgml
+ 	cd $(srcdir) \
+-	&& gtkdoc-mkdb --module=$(DOC_MODULE) --source-dir=$(DOC_SOURCE_DIR)
++	&& gtkdoc-mkdb --module=$(DOC_MODULE) --source-dir=$(DOC_SOURCE_DIR) --output-format=xml
+ 
+ html.stamp: sgml.stamp $(DOC_MAIN_SGML_FILE) $(content_files)
+ 	@echo '*** Building HTML ***'
+diff -Nru libglade-2.0.1.orig/doc/libglade-docs.sgml libglade-2.0.1/doc/libglade-docs.sgml
+--- libglade-2.0.1.orig/doc/libglade-docs.sgml	Sat Jun  1 18:24:35 2002
++++ libglade-2.0.1/doc/libglade-docs.sgml	Thu Oct 10 15:03:20 2002
+@@ -1,4 +1,6 @@
+-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V3.1//EN" [
++<?xml version="1.0"?>
++<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
++               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+ <!ENTITY libglade-glade-init SYSTEM "sgml/glade-init.sgml">
+ <!ENTITY libglade-glade-xml SYSTEM "sgml/glade-xml.sgml">
+ <!ENTITY libglade-glade-parser SYSTEM "sgml/glade-parser.sgml">
