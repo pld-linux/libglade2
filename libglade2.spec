@@ -14,7 +14,7 @@ Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.5/libglade-%{version}.tar.bz2
 # Source0-md5:	e4734a59f1f2308d7714dc0ebf8163f1
 URL:		http://www.gnome.org/
-BuildRequires:	atk-devel >= 1.9.0
+BuildRequires:	atk-devel >= 1:1.9.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	bison
