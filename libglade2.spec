@@ -20,6 +20,7 @@ BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	glib2-devel >= 2.0.6
 URL:		http://www.gnome.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libglade2.0
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -56,6 +57,7 @@ Requires:	%{name} = %{version}
 Requires:	libxml2-devel
 Requires:	gtk+2-devel >= 2.0.0
 Requires:	gtk-doc-common
+Obsoletes:	libglade2.0-devel
 
 %description devel
 Libraries, include files, etc you can use to develop libglade
