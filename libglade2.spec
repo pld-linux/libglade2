@@ -6,13 +6,13 @@ Summary(es):	El libglade permite que usted cargue archivos del interfaz del glad
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.4.0
-Release:	2
+Version:	2.4.1
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.4/libglade-%{version}.tar.bz2
-# Source0-md5:	c8367c58b2f2c98b76ca0667f0f13bf5
+# Source0-md5:	add87e5aef7d8a9ebb468bc0e4044440
 URL:		http://www.gnome.org/
 BuildRequires:	atk-devel >= 1.6.0
 BuildRequires:	autoconf
@@ -105,7 +105,7 @@ interface glade.
 %build
 %{__libtoolize}
 glib-gettextize --copy --force
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
