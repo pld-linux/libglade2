@@ -7,7 +7,7 @@ Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.5.1
-Release:	2
+Release:	3
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -27,7 +27,7 @@ BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
-BuildRequires:	rpmbuild(macros) >= 1.98
+BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	atk >= 1:1.9.0
 Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
@@ -107,7 +107,7 @@ interface glade.
 
 %build
 %{__libtoolize}
-glib-gettextize --copy --force
+%{__glib_gettextize}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
@@ -129,8 +129,11 @@ install -d $RPM_BUILD_ROOT%{_libdir}/libglade/2.0
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post
+%ldconfig_post
+
+%postun
+%ldconfig_postun
 
 %files
 %defattr(644,root,root,755)
