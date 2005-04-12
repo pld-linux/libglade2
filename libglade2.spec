@@ -27,7 +27,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires(post,postun):	/sbin/ldconfig
 Requires:	atk >= 1:1.9.1
 Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
