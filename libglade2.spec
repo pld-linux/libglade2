@@ -7,7 +7,7 @@ Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.5.1
-Release:	3
+Release:	4
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
