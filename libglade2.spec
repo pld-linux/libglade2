@@ -1,6 +1,7 @@
 #
 # TODO: register glade-2.0.dtd
-#
+# TODO: consider moving libglade-convert to main package - it is used to converting old 
+#             1.2.x version *.glade files to current structure.
 Summary:	libglade library
 Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
