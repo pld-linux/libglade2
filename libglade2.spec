@@ -1,34 +1,34 @@
 #
 # TODO: register glade-2.0.dtd
-#
+# TODO: consider moving libglade-convert to main package - it is used to converting old 
+#             1.2.x version *.glade files to current structure.
 Summary:	libglade library
 Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.5.1
-Release:	2
+Release:	5
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.5/libglade-%{version}.tar.bz2
 # Source0-md5:	e4734a59f1f2308d7714dc0ebf8163f1
 URL:		http://www.gnome.org/
-BuildRequires:	atk-devel >= 1:1.9.0
+BuildRequires:	atk-devel >= 1:1.9.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.6.2
-BuildRequires:	gtk+2-devel >= 2:2.6.2
+BuildRequires:	gtk+2-devel >= 2:2.6.4
 BuildRequires:	gtk-doc >= 1.0
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.4.24
+BuildRequires:	libxml2-devel >= 1:2.6.19
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
-BuildRequires:	rpmbuild(macros) >= 1.98
-Requires:	atk >= 1:1.9.0
+BuildRequires:	rpmbuild(macros) >= 1.197
+Requires:	atk >= 1:1.9.1
 Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,7 +61,7 @@ Summary(pl):	Pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.6.2
+Requires:	gtk+2-devel >= 2:2.6.4
 Requires:	gtk-doc-common
 Requires:	libxml2-devel
 Obsoletes:	libglade2.0-devel
@@ -107,14 +107,13 @@ interface glade.
 
 %build
 %{__libtoolize}
-glib-gettextize --copy --force
+%{__glib_gettextize}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
 	--enable-gtk-doc \
 	--with-html-path=%{_gtkdocdir}
-
 %{__make}
 
 %install
@@ -129,8 +128,8 @@ install -d $RPM_BUILD_ROOT%{_libdir}/libglade/2.0
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
