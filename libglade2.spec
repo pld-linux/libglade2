@@ -7,28 +7,28 @@ Summary(es):	El libglade permite que usted cargue archivos del interfaz del glad
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.5.1
-Release:	7
+Version:	2.6.0
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.5/libglade-%{version}.tar.bz2
-# Source0-md5:	e4734a59f1f2308d7714dc0ebf8163f1
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/libglade-%{version}.tar.bz2
+# Source0-md5:	81d7b2b64871ce23a5fae1e5da0b1f6e
 URL:		http://www.gnome.org/
-BuildRequires:	atk-devel >= 1:1.11.4
+BuildRequires:	atk-devel >= 1:1.12.1
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.9.2
-BuildRequires:	gtk-doc >= 1.0
+BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	gtk-doc >= 1.6
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.25
+BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	atk >= 1:1.11.4
+Requires:	atk >= 1:1.12.1
 Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -61,7 +61,7 @@ Summary(pl):	Pliki nag³ówkowe i dokumentacja dla programisty
 Summary(pt_BR):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.9.2
+Requires:	gtk+2-devel >= 2:2.10.0
 Requires:	gtk-doc-common
 Requires:	libxml2-devel
 Obsoletes:	libglade2.0-devel
@@ -112,6 +112,7 @@ interface glade.
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure \
 	--enable-gtk-doc \
 	--with-html-path=%{_gtkdocdir}
