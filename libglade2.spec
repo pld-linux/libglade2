@@ -1,14 +1,14 @@
 #
 # TODO: register glade-2.0.dtd
 # TODO: consider moving libglade-convert to main package - it is used to converting old 
-#             1.2.x version *.glade files to current structure.
+# 	1.2.x version *.glade files to current structure.
 Summary:	libglade library
 Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
 Summary(pl):	Biblioteka do ³adowania definicji interfejsu generowanego programem glade
 Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.6.0
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		X11/Libraries
@@ -21,13 +21,14 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.6.4
-BuildRequires:	gtk-doc >= 1.0
+BuildRequires:	gtk-doc >= 1.6
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.19
+BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.197
+Requires:	FHS >= 2.3-16
 Requires:	atk >= 1:1.9.1
 Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
@@ -106,6 +107,7 @@ interface glade.
 %setup -q -n libglade-%{version}
 
 %build
+%{__gtkdocize}
 %{__libtoolize}
 %{__glib_gettextize}
 %{__aclocal} -I m4
@@ -136,7 +138,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_libdir}/libglade
-%dir %{_datadir}/xml
 %dir %{_datadir}/xml/libglade
 %{_datadir}/xml/libglade/*.dtd
 
