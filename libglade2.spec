@@ -2,9 +2,9 @@
 # TODO: register glade-2.0.dtd
 #
 Summary:	libglade library
-Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
-Summary(pl):	Biblioteka do ≥adowania definicji interfejsu generowanego programem glade
-Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
+Summary(es.UTF-8):   El libglade permite que usted cargue archivos del interfaz del glade
+Summary(pl.UTF-8):   Biblioteka do ≈Çadowania definicji interfejsu generowanego programem glade
+Summary(pt_BR.UTF-8):   Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.5.1
 Release:	1
@@ -38,26 +38,26 @@ are stored externally. This allows alteration of the interface without
 recompilation of the program. The interfaces can also be edited with
 GLADE.
 
-%description -l es
+%description -l es.UTF-8
 El libglade permite que usted cargue archivos del interfaz del glade
-en tiempo de ejecuciÛn.
+en tiempo de ejecuci√≥n.
 
-%description -l pl
-Biblioteka libglade umoøliwia dynamiczne ≥adowanie definicji
-interfejsu uøytkownika generowanego za pomoc± programu glade. Taka
-separacja definicji interfejsu umoøliwia pracÍ nad nim bez
-konieczno∂ci rekompilacji programu.
+%description -l pl.UTF-8
+Biblioteka libglade umo≈ºliwia dynamiczne ≈Çadowanie definicji
+interfejsu u≈ºytkownika generowanego za pomocƒÖ programu glade. Taka
+separacja definicji interfejsu umo≈ºliwia pracƒô nad nim bez
+konieczno≈õci rekompilacji programu.
 
-%description -l pt_BR
-O libglade permite carregar, em tempo de execuÁ„o, arquivos da
-interface glade. N„o È necess·rio ter o glade instalado, mas esta È a
+%description -l pt_BR.UTF-8
+O libglade permite carregar, em tempo de execu√ß√£o, arquivos da
+interface glade. N√£o √© necess√°rio ter o glade instalado, mas esta √© a
 melhor maneira de criar os arquivos de interface.
 
 %package devel
 Summary:	Header files and developer's documentation
-Summary(es):	Archivos necesarios para el desarrollo de aplicaciones con libglade
-Summary(pl):	Pliki nag≥Ûwkowe i dokumentacja dla programisty
-Summary(pt_BR):	Arquivos necess·rios para o desenvolvimento de aplicaÁıes com a interface glade
+Summary(es.UTF-8):   Archivos necesarios para el desarrollo de aplicaciones con libglade
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe i dokumentacja dla programisty
+Summary(pt_BR.UTF-8):   Arquivos necess√°rios para o desenvolvimento de aplica√ß√µes com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.6.2
@@ -68,37 +68,37 @@ Obsoletes:	libglade2.0-devel
 %description devel
 Header files and developer's documentation for libglade.
 
-%description devel -l es
-Archivos de inclusiÛn y bibliotecas necesarias para el desarrollo de
+%description devel -l es.UTF-8
+Archivos de inclusi√≥n y bibliotecas necesarias para el desarrollo de
 aplicaciones con glade.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe i dokumentacja dla programisty libglade.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe i dokumentacja dla programisty libglade.
 
-%description devel -l pt_BR
-Arquivos de inclus„o e bibliotecas para o desenvolvimento de
-aplicaÁıes com a interface glade.
+%description devel -l pt_BR.UTF-8
+Arquivos de inclus√£o e bibliotecas para o desenvolvimento de
+aplica√ß√µes com a interface glade.
 
 %package static
 Summary:	Static libglade library
-Summary(es):	Archivos est·ticos necesarios para el desarrollo de aplicaciones con libglade
-Summary(pl):	Biblioteka statyczna libglade
-Summary(pt_BR):	Arquivos est·ticos necess·rios para o desenvolvimento de aplicaÁıes com a interface glade
+Summary(es.UTF-8):   Archivos est√°ticos necesarios para el desarrollo de aplicaciones con libglade
+Summary(pl.UTF-8):   Biblioteka statyczna libglade
+Summary(pt_BR.UTF-8):   Arquivos est√°ticos necess√°rios para o desenvolvimento de aplica√ß√µes com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static libglade library.
 
-%description static -l es
-Archivos est·ticos necesarias para el desarrollo de aplicaciones con
+%description static -l es.UTF-8
+Archivos est√°ticos necesarias para el desarrollo de aplicaciones con
 glade.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna libglade.
 
-%description static -l pt_BR
-Bibliotecas est·ticas para o desenvolvimento de aplicaÁıes com a
+%description static -l pt_BR.UTF-8
+Bibliotecas est√°ticas para o desenvolvimento de aplica√ß√µes com a
 interface glade.
 
 %prep
