@@ -3,9 +3,9 @@
 # TODO: consider moving libglade-convert to main package - it is used to converting old 
 # 	1.2.x version *.glade files to current structure.
 Summary:	libglade library
-Summary(es.UTF-8):   El libglade permite que usted cargue archivos del interfaz del glade
-Summary(pl.UTF-8):   Biblioteka do ładowania definicji interfejsu generowanego programem glade
-Summary(pt_BR.UTF-8):   Esta biblioteca permite carregar arquivos da interface glade
+Summary(es.UTF-8):	El libglade permite que usted cargue archivos del interfaz del glade
+Summary(pl.UTF-8):	Biblioteka do ładowania definicji interfejsu generowanego programem glade
+Summary(pt_BR.UTF-8):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.6.0
 Release:	3
@@ -57,9 +57,9 @@ melhor maneira de criar os arquivos de interface.
 
 %package devel
 Summary:	Header files and developer's documentation
-Summary(es.UTF-8):   Archivos necesarios para el desarrollo de aplicaciones con libglade
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja dla programisty
-Summary(pt_BR.UTF-8):   Arquivos necessários para o desenvolvimento de aplicações com a interface glade
+Summary(es.UTF-8):	Archivos necesarios para el desarrollo de aplicaciones con libglade
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja dla programisty
+Summary(pt_BR.UTF-8):	Arquivos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	gtk+2-devel >= 2:2.10.0
@@ -83,9 +83,9 @@ aplicações com a interface glade.
 
 %package static
 Summary:	Static libglade library
-Summary(es.UTF-8):   Archivos estáticos necesarios para el desarrollo de aplicaciones con libglade
-Summary(pl.UTF-8):   Biblioteka statyczna libglade
-Summary(pt_BR.UTF-8):   Arquivos estáticos necessários para o desenvolvimento de aplicações com a interface glade
+Summary(es.UTF-8):	Archivos estáticos necesarios para el desarrollo de aplicaciones con libglade
+Summary(pl.UTF-8):	Biblioteka statyczna libglade
+Summary(pt_BR.UTF-8):	Arquivos estáticos necessários para o desenvolvimento de aplicações com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
