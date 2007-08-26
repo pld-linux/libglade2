@@ -1,7 +1,5 @@
 #
 # TODO: register glade-2.0.dtd
-# TODO: consider moving libglade-convert to main package - it is used to converting old 
-# 	1.2.x version *.glade files to current structure.
 #
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
@@ -11,13 +9,13 @@ Summary(es.UTF-8):	El libglade permite que usted cargue archivos del interfaz de
 Summary(pl.UTF-8):	Biblioteka do ładowania definicji interfejsu generowanego programem glade
 Summary(pt_BR.UTF-8):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.6.1
+Version:	2.6.2
 Release:	1
 Epoch:		1
-License:	LGPL
+License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/libglade-%{version}.tar.bz2
-# Source0-md5:	489be887b26b9973f77e2c6111ab7d5a
+# Source0-md5:	da4f9d1c6cd1337f6ef5e2db768d8557
 URL:		http://www.gnome.org/
 BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf >= 2.52
@@ -129,7 +127,7 @@ Dokumentacja API libglade.
 %{__autoconf}
 %{__automake}
 %configure \
-	--%{?with_apidocs:en}%{?!with_apidocs:dis}able-gtk-doc \
+	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
 	--with-html-path=%{_gtkdocdir}
 %{__make}
 
@@ -142,7 +140,7 @@ install -d $RPM_BUILD_ROOT%{_libdir}/libglade/2.0
 	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
-%{?!with_apidocs:rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}}
+%{!?with_apidocs:rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -153,7 +151,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libglade-2.0.so.*.*.*
 %{_libdir}/libglade
 %dir %{_datadir}/xml/libglade
 %{_datadir}/xml/libglade/*.dtd
@@ -161,15 +159,15 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc ChangeLog
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_bindir}/libglade-convert
+%attr(755,root,root) %{_libdir}/libglade-2.0.so
+%{_libdir}/libglade-2.0.la
 %{_pkgconfigdir}/*
-%{_includedir}/libglade-*
+%{_includedir}/libglade-2.0
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libglade-2.0.a
 
 %if %{with apidocs}
 %files apidocs
