@@ -19,7 +19,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/libglade-%{version}
 URL:		http://www.gnome.org/
 BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.13
