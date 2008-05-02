@@ -1,35 +1,37 @@
 #
 # TODO: register glade-2.0.dtd
-# TODO: consider moving libglade-convert to main package - it is used to converting old 
-# 	1.2.x version *.glade files to current structure.
+#
+# Conditional build:
+%bcond_without	apidocs		# disable gtk-doc
+#
 Summary:	libglade library
-Summary(es):	El libglade permite que usted cargue archivos del interfaz del glade
-Summary(pl):	Biblioteka do ≥adowania definicji interfejsu generowanego programem glade
-Summary(pt_BR):	Esta biblioteca permite carregar arquivos da interface glade
+Summary(es.UTF-8):	El libglade permite que usted cargue archivos del interfaz del glade
+Summary(pl.UTF-8):	Biblioteka do ≈Çadowania definicji interfejsu generowanego programem glade
+Summary(pt_BR.UTF-8):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.6.0
-Release:	3
+Version:	2.6.2
+Release:	1
 Epoch:		1
-License:	LGPL
+License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/libglade-%{version}.tar.bz2
-# Source0-md5:	81d7b2b64871ce23a5fae1e5da0b1f6e
+# Source0-md5:	da4f9d1c6cd1337f6ef5e2db768d8557
 URL:		http://www.gnome.org/
-BuildRequires:	atk-devel >= 1:1.9.1
+BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.6.4
-BuildRequires:	gtk-doc >= 1.6
+BuildRequires:	gtk+2-devel >= 2:2.10.13
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	libxml2-devel >= 1:2.6.29
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	FHS >= 2.3-16
-Requires:	atk >= 1:1.9.1
+Requires:	atk >= 1:1.18.0
 Requires:	python-modules >= 2.0
 Obsoletes:	libglade2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,81 +42,92 @@ are stored externally. This allows alteration of the interface without
 recompilation of the program. The interfaces can also be edited with
 GLADE.
 
-%description -l es
+%description -l es.UTF-8
 El libglade permite que usted cargue archivos del interfaz del glade
-en tiempo de ejecuciÛn.
+en tiempo de ejecuci√≥n.
 
-%description -l pl
-Biblioteka libglade umoøliwia dynamiczne ≥adowanie definicji
-interfejsu uøytkownika generowanego za pomoc± programu glade. Taka
-separacja definicji interfejsu umoøliwia pracÍ nad nim bez
-konieczno∂ci rekompilacji programu.
+%description -l pl.UTF-8
+Biblioteka libglade umo≈ºliwia dynamiczne ≈Çadowanie definicji
+interfejsu u≈ºytkownika generowanego za pomocƒÖ programu glade. Taka
+separacja definicji interfejsu umo≈ºliwia pracƒô nad nim bez
+konieczno≈õci rekompilacji programu.
 
-%description -l pt_BR
-O libglade permite carregar, em tempo de execuÁ„o, arquivos da
-interface glade. N„o È necess·rio ter o glade instalado, mas esta È a
+%description -l pt_BR.UTF-8
+O libglade permite carregar, em tempo de execu√ß√£o, arquivos da
+interface glade. N√£o √© necess√°rio ter o glade instalado, mas esta √© a
 melhor maneira de criar os arquivos de interface.
 
 %package devel
 Summary:	Header files and developer's documentation
-Summary(es):	Archivos necesarios para el desarrollo de aplicaciones con libglade
-Summary(pl):	Pliki nag≥Ûwkowe i dokumentacja dla programisty
-Summary(pt_BR):	Arquivos necess·rios para o desenvolvimento de aplicaÁıes com a interface glade
+Summary(es.UTF-8):	Archivos necesarios para el desarrollo de aplicaciones con libglade
+Summary(pl.UTF-8):	Pliki nag≈Ç√≥wkowe i dokumentacja dla programisty
+Summary(pt_BR.UTF-8):	Arquivos necess√°rios para o desenvolvimento de aplica√ß√µes com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
-Requires:	gtk+2-devel >= 2:2.6.4
-Requires:	gtk-doc-common
-Requires:	libxml2-devel
+Requires:	gtk+2-devel >= 2:2.10.13
+Requires:	libxml2-devel >= 1:2.6.29
 Obsoletes:	libglade2.0-devel
 
 %description devel
 Header files and developer's documentation for libglade.
 
-%description devel -l es
-Archivos de inclusiÛn y bibliotecas necesarias para el desarrollo de
+%description devel -l es.UTF-8
+Archivos de inclusi√≥n y bibliotecas necesarias para el desarrollo de
 aplicaciones con glade.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe i dokumentacja dla programisty libglade.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe i dokumentacja dla programisty libglade.
 
-%description devel -l pt_BR
-Arquivos de inclus„o e bibliotecas para o desenvolvimento de
-aplicaÁıes com a interface glade.
+%description devel -l pt_BR.UTF-8
+Arquivos de inclus√£o e bibliotecas para o desenvolvimento de
+aplica√ß√µes com a interface glade.
 
 %package static
 Summary:	Static libglade library
-Summary(es):	Archivos est·ticos necesarios para el desarrollo de aplicaciones con libglade
-Summary(pl):	Biblioteka statyczna libglade
-Summary(pt_BR):	Arquivos est·ticos necess·rios para o desenvolvimento de aplicaÁıes com a interface glade
+Summary(es.UTF-8):	Archivos est√°ticos necesarios para el desarrollo de aplicaciones con libglade
+Summary(pl.UTF-8):	Biblioteka statyczna libglade
+Summary(pt_BR.UTF-8):	Arquivos est√°ticos necess√°rios para o desenvolvimento de aplica√ß√µes com a interface glade
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Static libglade library.
 
-%description static -l es
-Archivos est·ticos necesarias para el desarrollo de aplicaciones con
+%description static -l es.UTF-8
+Archivos est√°ticos necesarias para el desarrollo de aplicaciones con
 glade.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna libglade.
 
-%description static -l pt_BR
-Bibliotecas est·ticas para o desenvolvimento de aplicaÁıes com a
+%description static -l pt_BR.UTF-8
+Bibliotecas est√°ticas para o desenvolvimento de aplica√ß√µes com a
 interface glade.
+
+%package apidocs
+Summary:	libglade API documentation
+Summary(pl.UTF-8):	Dokumentacja API libglade
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+libglade API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API libglade.
 
 %prep
 %setup -q -n libglade-%{version}
 
 %build
-%{__gtkdocize}
+%{?with_apidocs:%{__gtkdocize}}
 %{__libtoolize}
 %{__glib_gettextize}
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-gtk-doc \
+	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
 	--with-html-path=%{_gtkdocdir}
 %{__make}
 
@@ -127,6 +140,8 @@ install -d $RPM_BUILD_ROOT%{_libdir}/libglade/2.0
 	HTML_DIR=%{_gtkdocdir} \
 	pkgconfigdir=%{_pkgconfigdir}
 
+%{!?with_apidocs:rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -136,7 +151,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libglade-2.0.so.*.*.*
 %{_libdir}/libglade
 %dir %{_datadir}/xml/libglade
 %{_datadir}/xml/libglade/*.dtd
@@ -144,13 +159,18 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %doc ChangeLog
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_bindir}/libglade-convert
+%attr(755,root,root) %{_libdir}/libglade-2.0.so
+%{_libdir}/libglade-2.0.la
 %{_pkgconfigdir}/*
-%{_includedir}/libglade-*
-%{_gtkdocdir}/libglade
+%{_includedir}/libglade-2.0
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libglade-2.0.a
+
+%if %{with apidocs}
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/libglade
+%endif
