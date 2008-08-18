@@ -9,13 +9,13 @@ Summary(es.UTF-8):	El libglade permite que usted cargue archivos del interfaz de
 Summary(pl.UTF-8):	Biblioteka do ładowania definicji interfejsu generowanego programem glade
 Summary(pt_BR.UTF-8):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
-Version:	2.6.2
+Version:	2.6.3
 Release:	1
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/libglade-%{version}.tar.bz2
-# Source0-md5:	da4f9d1c6cd1337f6ef5e2db768d8557
+# Source0-md5:	1c359860b1a0f369f0b6e3f96fd985c2
 URL:		http://www.gnome.org/
 BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf >= 2.52
@@ -152,6 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/libglade-2.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libglade-2.0.so.0
 %{_libdir}/libglade
 %dir %{_datadir}/xml/libglade
 %{_datadir}/xml/libglade/*.dtd
