@@ -21,6 +21,7 @@ BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.13
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
@@ -29,6 +30,7 @@ BuildRequires:	libxml2-devel >= 1:2.6.29
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 2.0
 BuildRequires:	python-modules >= 2.0
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	FHS >= 2.3-16
 Requires:	atk >= 1:1.18.0
