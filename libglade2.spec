@@ -23,6 +23,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2:2.10.13
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	libtool
