@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Biblioteka do ładowania definicji interfejsu generowanego pr
 Summary(pt_BR.UTF-8):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.6.4
-Release:	3
+Release:	4
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
