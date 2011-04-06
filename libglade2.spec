@@ -10,7 +10,7 @@ Summary(pl.UTF-8):	Biblioteka do ładowania definicji interfejsu generowanego pr
 Summary(pt_BR.UTF-8):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.6.4
-Release:	5
+Release:	6
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
@@ -145,6 +145,8 @@ install -d $RPM_BUILD_ROOT%{_libdir}/libglade/2.0
 
 %{!?with_apidocs:rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}}
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -165,7 +167,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog
 %attr(755,root,root) %{_bindir}/libglade-convert
 %attr(755,root,root) %{_libdir}/libglade-2.0.so
-%{_libdir}/libglade-2.0.la
 %{_pkgconfigdir}/*
 %{_includedir}/libglade-2.0
 
