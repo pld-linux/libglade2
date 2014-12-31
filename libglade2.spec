@@ -16,6 +16,7 @@ License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/libglade-%{version}.tar.bz2
 # Source0-md5:	d1776b40f4e166b5e9c107f1c8fe4139
+Patch0:		gmodule-link.patch
 URL:		http://www.gnome.org/
 BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf >= 2.52
@@ -121,6 +122,7 @@ Dokumentacja API libglade.
 
 %prep
 %setup -q -n libglade-%{version}
+%patch0 -p1
 
 %build
 %{?with_apidocs:%{__gtkdocize}}
