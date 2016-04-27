@@ -3,14 +3,14 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
-#
+
 Summary:	libglade library
 Summary(es.UTF-8):	El libglade permite que usted cargue archivos del interfaz del glade
 Summary(pl.UTF-8):	Biblioteka do ładowania definicji interfejsu generowanego programem glade
 Summary(pt_BR.UTF-8):	Esta biblioteca permite carregar arquivos da interface glade
 Name:		libglade2
 Version:	2.6.4
-Release:	8
+Release:	9
 Epoch:		1
 License:	LGPL v2+
 Group:		X11/Libraries
@@ -113,6 +113,9 @@ Summary:	libglade API documentation
 Summary(pl.UTF-8):	Dokumentacja API libglade
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 libglade API documentation.
