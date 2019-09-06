@@ -17,14 +17,14 @@ Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/libglade-%{version}.tar.bz2
 # Source0-md5:	d1776b40f4e166b5e9c107f1c8fe4139
 Patch0:		gmodule-link.patch
-URL:		http://www.gnome.org/
+Patch1:		%{name}-no-gnome-common.patch
+URL:		https://developer.gnome.org/libglade/
 BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools
-BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2:2.10.13
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	libtool
@@ -126,6 +126,7 @@ Dokumentacja API libglade.
 %prep
 %setup -q -n libglade-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{?with_apidocs:%{__gtkdocize}}
@@ -135,8 +136,8 @@ Dokumentacja API libglade.
 %{__autoconf}
 %{__automake}
 %configure \
-	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
-	--with-html-path=%{_gtkdocdir}
+	--enable-gtk-doc%{!?with_apidocs:=no} \
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
@@ -165,14 +166,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libglade-2.0.so.0
 %{_libdir}/libglade
 %dir %{_datadir}/xml/libglade
-%{_datadir}/xml/libglade/*.dtd
+%{_datadir}/xml/libglade/glade-2.0.dtd
 
 %files devel
 %defattr(644,root,root,755)
 %doc ChangeLog
 %attr(755,root,root) %{_bindir}/libglade-convert
 %attr(755,root,root) %{_libdir}/libglade-2.0.so
-%{_pkgconfigdir}/*
+%{_pkgconfigdir}/libglade-2.0.pc
 %{_includedir}/libglade-2.0
 
 %files static
