@@ -136,6 +136,7 @@ Dokumentacja API libglade.
 %{__autoconf}
 %{__automake}
 %configure \
+	PYTHON=%{__python} \
 	--enable-gtk-doc%{!?with_apidocs:=no} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
